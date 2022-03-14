@@ -795,7 +795,7 @@ function bgA() {
 function backGraundDelete() {
 
 
-  if (pontos < 2) {
+  if (pontos < 30) {
     bg.draw();
     bg.update();
   } else {
@@ -816,7 +816,7 @@ function armax() {
 
 function FaseChefe() {
 
-  if (pontos == 2) {
+  if (pontos == 30) {
      Colisao3();
      Text3();
     criarArma(looptempo);
