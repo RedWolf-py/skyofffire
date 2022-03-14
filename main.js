@@ -62,8 +62,8 @@ function visivel() {
 canvas.width = 1700;
 canvas.height = 700;
 
-const iniciar = new Audio();
-iniciar.src = '/sons/iniciar.wav'
+const inicioJogo01 = new Audio();
+inicioJogo01.src = '/sons/iniciar.wav'
 
 /*const arma = new Audio();
 arma.src = '/sons/machinne.wav'*/
@@ -82,12 +82,12 @@ class Bandeira {
   constructor() {
     this.xx = 0;
     this.yy = 0;
-    this.sWW = 640;
-    this.sHH = 138;
+    this.sWW = 300;
+    this.sHH = 200;
     this.posXX = aviao.posXP - 220
     this.posYY = aviao.posYP - 10
-    this.width = 640;
-    this.height = 138;
+    this.width = 300;
+    this.height = 200;
     this.direcaoX = 2;
     this.direcaoY = 2;
     this.frame = 0;
@@ -109,6 +109,8 @@ class Bandeira {
 
 
   update(looptempo) {
+  
+    
 
     this.frameinicio += looptempo;
     if (this.frameinicio > this.frameinterval) {
@@ -121,7 +123,7 @@ class Bandeira {
     if (this.posYY < 0 || this.posYY > canvas.height - this.height) {
       this.direcaoY = this.direcaoY * -1
     }
-    if (this.posXX - this.width > canvas.width) this.posXX = 0;
+    if (this.posXX > canvas.width) this.posXX = 0;
     this.posXX += this.direcaoX;
     this.posYY += this.direcaoY;
 
@@ -130,7 +132,7 @@ class Bandeira {
 
 
 
-class backGraund35 {
+class BackGraund35 {
   constructor() {
     this.x = 0;
     this.y = 0;
@@ -156,7 +158,7 @@ class backGraund35 {
   }
 }
 
-class backGraund {
+class BackGraund {
   constructor() {
     this.x = 0;
     this.y = 0;
@@ -271,7 +273,7 @@ class Player {
     this.maxframe = 1;
     this.vertical = 0;
     this.horizontal = 0;
-    this.correr = 50;
+    this.correr = 80;
     this.framemenor = 0;
     this.framemaior = 50;
     this.visible = true;
@@ -335,9 +337,9 @@ class Vilao {
     this.posX = 1720;
     this.posY = Math.random() * canvas.height;
     this.Medidaradom = Math.random() * 0.6 + 0.8;
-    this.width = 100 * this.Medidaradom
+    this.width = 200 * this.Medidaradom
 
-    this.height = 100 * this.Medidaradom
+    this.height = 200 * this.Medidaradom
 
     this.direcaoX = Math.random() * 1 + 1;
     this.direcaoY = Math.random() * 1 - 1;
@@ -473,7 +475,7 @@ class Arma {
 
 }
 
-class backGraund2 {
+class BackGraund2 {
   constructor() {
     this.x = 0;
     this.y = 0;
@@ -545,7 +547,7 @@ class Dragao {
     this.x = 0;
     this.y = 0;
     this.sW = 300;
-    this.sH = 300;
+    this.sH = 345;
     this.posX = 1500;
     this.posY = 100;
     this.width = 500;
@@ -562,7 +564,7 @@ class Dragao {
     this.markedForDeletion = false;
     this.speed = 0.1;
     this.baterAsa = 0;
-    this.baterAsaIntevalo = 300;
+    this.baterAsaIntevalo = 250;
   }
 
 
@@ -603,8 +605,6 @@ class Dragao {
 
 //Variaveis
 
-var Global = 0;
-
 let aviaoinicio = [];
 let bande = [];
 let armaInicialx = [];
@@ -621,11 +621,12 @@ let armas = [];
 const aviao = new Iniciaraviao();
 var Dragon = new Dragao()
 var player = new Player();
-const bg = new backGraund();
-const bg2 = new backGraund2();
-const bga = new backGraund35();
+const bg = new BackGraund();
+const bg2 = new BackGraund2();
+const bga = new BackGraund35();
 var badeiyra = new Bandeira();
 
+var Global = 0;
 var pontos = 0;
 let tempo = 0;
 let inimigo = 0;
@@ -634,11 +635,12 @@ let inimigoVida = 0;
 let ChefeVida = 0;
 let playerVida = 0;
 let arm = 0;
-let intervalarm = 1000;
+let intervalarm = 1500;
 let largura = 50;
 let Life = 100;
 let size = 200;
 let size2 = 240;
+let LifeDragao = 100;
 
 
 Jogador.push(player);
@@ -684,10 +686,6 @@ Fogo.addEventListener('click', function() {
   armas.push(new Arma());
 
 });
-
-
-
-
 
 function Colisao() {
   vilao.forEach(Vilao => {
@@ -735,11 +733,13 @@ function Colisao3() {
         Dragon.posX + Dragon.width > Arma.posXX &&
         Dragon.posY < Arma.posYY + Arma.height &&
         Dragon.posY + Dragon.height > Arma.posYY) {
+          LifeDragao = LifeDragao -(5)
 
         ChefeVida++
 
 
-        if (ChefeVida == 110) {
+        if (ChefeVida == 30) {
+          
           Dragon.markedForDeletion = true;
         }
         Arma.markedForDeletion = true;
@@ -770,14 +770,8 @@ function Colisao4() {
           setTimeout(function() {
             GameOver();
             
-
-
           });
-          pontos=0
-
-
           telaInicial.style.display = 'none'
-
 
         }
         AtaqueMonstro.markedForDeletion = true;
@@ -823,9 +817,9 @@ function armax() {
 function FaseChefe() {
 
   if (pontos == 2) {
-
-    criarArma(looptempo)
-
+     Colisao3();
+     Text3();
+    criarArma(looptempo);
 
     chefao.forEach(Dragon => {
       Dragon.draw();
@@ -833,7 +827,6 @@ function FaseChefe() {
     });
 
     chefao = chefao.filter(dragao => !dragao.markedForDeletion);
-
 
     //para os.monstros
     //clearInterval(UploadMonstros());
@@ -849,7 +842,6 @@ function FaseChefe() {
 }
 gameover.addEventListener('click', function() {
 
-
   gameover.style.display = 'none';
   Global = 0;
   telaInicial.style.display = 'block';
@@ -859,13 +851,11 @@ gameover.addEventListener('click', function() {
   size = 200;
   size2 = 240;
   player.restart();
+  LifeDragao = 100;
 
 });
 
 function GameOver() {
-
-
-
   gameover.style.display = 'block'
 
 }
@@ -928,8 +918,11 @@ function criarArma(looptempo) {
     ArmaChefao.push(new AtaqueMonstro());
     arm = 0
 
-  } else {
-    arm += looptempo
+  } else if(Life <= 0 || size <= 0) {
+    AtaqueMonstro.markedForDeletion = true;
+   
+   }else{
+     arm += looptempo
   }
 }
 
@@ -938,10 +931,10 @@ function criarArma(looptempo) {
 function Text() {
   ctx.fillStyle = "red";
   ctx.font = "35pt Arial";
-  ctx.fillText("Pontos: " + pontos, 340, 36);
+  ctx.fillText("Pontos: " + pontos, 260, 36);
   ctx.fillStyle = "black";
   ctx.font = "35pt Arial";
-  ctx.fillText("Pontos: " + pontos, 343, 39);
+  ctx.fillText("Pontos: " + pontos, 263, 39);
 
 
 }
@@ -957,6 +950,44 @@ function Text2() {
 
 
 }
+
+function Text3() {
+  ctx.fillStyle = "green";
+  ctx.font = "35pt arial";
+  ctx.fillText("Vida: " + LifeDragao + "%", 1420, 70);
+  ctx.fillStyle = "black";
+  ctx.font = "35pt arial";
+  ctx.fillText("Vida: " + LifeDragao + "%", 1423, 73);
+
+
+}
+
+function lifeFill() {
+  ctx.strokeStyle = 'red'
+  ctx.lineWidth = 30;
+  ctx.lineCap = 'round';
+
+  ctx.fillRect(0, 0, size2, 40)
+  ctx.beginPath();
+  ctx.moveTo(size, 15);
+  ctx.lineTo(15, 15);
+  ctx.stroke();
+}
+
+function loopLife() {
+  if (size <= 200 || size2 <= 240)
+    size = size - 40
+  size2 = size2 - 34
+  ctx.beginPath();
+  ctx.moveTo(size, 100);
+  ctx.lineTo(15, 100);
+  ctx.stroke();
+
+
+}
+
+
+
 
 
 function FullScreen() {
@@ -986,16 +1017,6 @@ function UplodArma() {
   armaInicialx = armaInicialx.filter(Arma2 => !Arma2.markedForDeletion)
 }
 
-function bandeiira() {
-  iniciop.forEach(iniciaraviao => {
-    iniciaraviao.draw();
-    iniciaraviao.update();
-  })
-
-  iniciop = iniciop.filter(iniciaraviao => !iniciaraviao.markedForDeletion)
-
-}
-
 function criandoAviao() {
   aviaoinicio.forEach(aviao => {
     aviao.draw();
@@ -1004,58 +1025,28 @@ function criandoAviao() {
 
   bande.forEach(badeiyra => {
     badeiyra.draw();
-    badeiyra.update();
+    badeiyra.update(looptempo);
   })
 }
 
 
 
 
-
-
-function lifeFill() {
-  ctx.strokeStyle = 'red'
-  ctx.lineWidth = 30;
-  ctx.lineCap = 'round';
-
-  ctx.fillRect(0, 0, size2, 40)
-  ctx.beginPath();
-  ctx.moveTo(size, 15);
-  ctx.lineTo(15, 15);
-  ctx.stroke();
-}
-
-function loopLife() {
-  if (size <= 200 || size2 <= 240)
-    size = size - 40
-  size2 = size2 - 34
-  ctx.beginPath();
-  ctx.moveTo(size, 100);
-  ctx.lineTo(15, 100);
-  ctx.stroke();
-
-
-}
-
-
-function Iniciar() {
-  //audio.play();
-  bgA();
-  criandoAviao();
-  UplodArma();
-  bandeiira();
-
-
-
-}
-
-function autoReset() {
+/*function autoReset() {
   if (Life <= 0 || size <= 0) {
 
   }
+}*/
 
+
+function Iniciar() {
+
+  bgA();
+  criandoAviao();
+  UplodArma();
 
 }
+
 
 function loop(tempopassado) {
 
@@ -1072,16 +1063,14 @@ function loop(tempopassado) {
     lifeFill();
     Colisao();
     Colisao2();
-    Colisao3();
     Colisao4();
     armasJogo();
     FaseChefe();
     CriandoPlayer();
     UploadMonstros(looptempo);
-    autoReset();
-
-    //jogando.play();
-
+    //autoReset();
+    audio.play();
+   
 
 
   }
