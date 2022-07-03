@@ -288,10 +288,11 @@ class Player {
 
     //codigo de movimento modo desktop 
 
-    if (teclasTiro == 'Enter') {
+    if (teclasTiro == 'Enter' || teclas == '32') {
       armas.push(new Arma());
     } else {
       teclasTiro = false;
+    
     }
 
     if (teclas == '37' || teclas == '65') {
