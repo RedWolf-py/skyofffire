@@ -8,42 +8,54 @@
 
   <title>SKYoffFIRE</title>
   </title>
-
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <canvas id="canvas1"></canvas>
-    <img id='anjo' src='/img/anjo.png'>
-    <img id='bg' src='/img/bg.png'>
-    <img id='bga' src='/img/bga.png'>
-    <img id='bg2' src='/img/bg2.png'>
-    <img id='arma' src='/img/laser.png'>
-    <img id='arma2' src='/img/laserinicial.png'>
-    <img id='bicho' src='/img/morcegoF.png'>
-    <img id='snoopano' src='/img/snoopplano.png'>
-    <img id='snoop3' src='/img/snoop3.png'>
-    <img id='snoop' src='/img/snoop.png'>
-    <img id='snoop2' src='/img/snoop1.png'>
-    <img id='chefe' src='/img/chefe.png'>
-    <img id='laser2' src='/img/laser2.png'>
-    <img id='dragon' src='/img/drago4.png'>
-    <img id='bandeira' src='/img/badeira.png'>
+  <canvas id="canvas1"></canvas>
+  <!--sprites do jogo-->
+  <img id='Morcego' src='/img/Morcego.png'>
+  <img id='bg' src='/img/bg.png'>
+  <img id='bga' src='/img/bga.png'>
+  <img id='bg2' src='/img/bg2.png'>
+  <img id='arma' src='/img/laser.png'>
+  <img id='arma2' src='/img/laserinicial.png'>
+  <img id='alien' src='/img/alien.png'>
+  <img id='snoopano' src='/img/snoopplano.png'>
+  <img id='snoop3' src='/img/snoop3.png'>
+  <img id='snoop' src='/img/snoop.png'>
+  <img id='snoop2' src='/img/snoop1.png'>
+  <img id='chefe' src='/img/chefe.png'>
+  <img id='laser2' src='/img/laser2.png'>
+  <img id='le' src='/img/le.png'>
+  <img id='dragon' src='/img/dragaojogo.png'>
+  <img id='bandeira' src='/img/badeira.png'>
+  <img id='gamehover' src='/img/gamover.png'>
+  <img id='credito' src='/img/creditos.png'>
+  <img id='especial' src='/img/especial.png'>
+  <img id='vidajogo' src='/img/vidajogo.png'>
+  <img id='esp' src='/img/esp.png'>
 
-    <button id='fulscreen'>Full Screen</button>
-    <button id='bt'>∆</button>
-    <button class='es'>⇦</button>
-    <button class='ci'>⇧</button>
-    <button class='di'>⇨</button>
-    <button class='ba'>⇩</button>
-    <button id='over'>GAME OVER<br>
-      Press Enter</button>
-    <button id='tela'>START</button>
-
-    <script src="main.js"></script>
+  <!--audio do jogo-->
+  <audio class="Miniciar" src="/sons/iniciar.wav"></audio>
+  <audio class="Mjogando" src="/sons/jogando.wav"></audio>
+  <audio class="Mchefe" src="/sons/chefe.wav"></audio>
+  <audio class="Mgameover" src="/sons/gameover.mp3"></audio>
+  <audio class="Mfinal" src="/sons/final.wav"></audio>
+  <!--botoes do jogo-->
+  <button class="fogo">Fire</button>
+  <button id='fulscreen'>Full Screen</button>
+  <button id='tela'>START</button>
+  <button id='tela2'>PRESS START</button>
+  <!--scripts do jogo-->
+  <script src="funcoesClasses.js"></script>
+  <script src="funcoesglobais.js"></script>
+  <script src="main.js"></script>
 
 </body>
 
 </html>
+
+<!-- d-_-b -->

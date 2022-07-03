@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Teko:wght@600&display=swap');
+
+:root {
+  --font1: "Great+Vibes", serif;
+  --font2: "Teko", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,17 +12,13 @@
 }
 
 body {
-  background: black;
-}
-
-.centro{
-  background-color: 
+  background:black;
 }
 
 #arma,
-#bicho,
+#alien,
 #snoop,
-#anjo,
+#Morcego,
 #bg,
 #tela,
 #bg2,
@@ -28,7 +31,15 @@ body {
 #snoop3,
 #dragon,
 #bandeira,
-#svg{
+#le,
+#life,
+#gamehover,
+#especial,
+#svg,
+#credito,
+#vidajogo,
+#esp,
+#ras {
   display: none;
 }
 
@@ -43,136 +54,58 @@ body {
 }
 
 
-.um{
-  width: 20px;
-  height: 10px;
-  background-color: red;
-}
-
-
-.dois{
-  width: 40px;
-  height: 10px;
-  background-color: red;
-}
-
-
-.tres{
-  width: 60px;
-  height: 10px;
-  background-color: red;
-}
-
-
-.quatro{
-  width: 80px;
-  height: 10px;
-  background-color: red;
-}
-
-
-.cinco{
-  width: 100px;
-  height: 10px;
-  background-color: red;
-}
-
-#bt {
-  position: absolute;
-  top: 65%;
-  left: 85%;
-  font-size: 40px;
-  border-radius: 10px;
-  background: transparent;
-  color: red;
-
-}
 
 #fulscreen {
   position: absolute;
-  top: 15%;
+  margin-top: -15%;
+  padding: 0.5%;
   font-size: 20px;
   left: 50%;
-  transform: translateX(-50%, -50%);
   background: transparent;
   border-radius: 10px;
   color: red;
-
-}
-
-
-.di {
-  position: absolute;
-  top: 65%;
-  left: 20%;
-  font-size: 40px;
-  border-radius: 10px;
-  background: transparent;
-  color: red;
-}
-
-.es {
-  position: absolute;
-  top: 65%;
-  left: 6%;
-  font-size: 40px;
-  border-radius: 10px;
-  background: transparent;
-  color: red;
-}
-
-.ci {
-  position: absolute;
-  top: 56%;
-  left: 14%;
-  font-size: 40px;
-  border-radius: 10px;
-  background: transparent;
-  color: red;
-}
-
-.ba {
-  position: absolute;
-  top: 73%;
-  left: 14%;
-  font-size: 40px;
-  border-radius: 10px;
-  background: transparent;
-  color: red;
-
-}
-
-#over {
-  position: absolute;
-  top: 30%;
-  left: 30%;
-  font-size: 60px;
-  border-radius: 10px;
-  background: transparent;
+  border: 2px solid red;
   display: none;
-  color: white;
+
+}
+
+#tela2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  border-radius: 10px;
+  background: transparent;
+  color: azure;
+  border: 2px solid red;
+  width: 25%;
+  height: 12%;
+  display: none;
+
 
 }
 
 #tela {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 30px;
+  left: 35%;
+  font-size: 40px;
   border-radius: 10px;
   background: transparent;
-  color: azure;
-  border-color: red;
-  display: none;
+  color: white;
+  border: 4px solid red;
   width: 30%;
-  height: 10%;
-
+  height: 12%;
+  display: none;
 
 }
 
+.fogo{
+  display: none;
+}
 
-@media screen and (min-height: 600px) {
+@media (max-width: 800px) and (orientation: landscape) {
   body {
     background-color: black;
     display: flex;
@@ -197,62 +130,33 @@ body {
 
   #fulscreen {
     position: absolute;
-    top: 39%;
+    top: 30%;
     font-size: 10px;
     left: 50%;
     transform: translateX(-50%);
     background: transparent;
     border-radius: 10%;
     color: red;
-
-  }
-
-
-  .di {
-    position: absolute;
-    top: 54%;
-    left: 19%;
-    font-size: 20px;
-    border-radius: 5px;
-    background: transparent;
-  }
-
-  .es {
-    position: absolute;
-    top: 54%;
-    left: 5%;
-    font-size: 20px;
-    border-radius: 5px;
-    background: transparent;
-  }
-
-  .ci {
-    position: absolute;
-    top: 52%;
-    left: 13%;
-    font-size: 20px;
-    border-radius: 5px;
-    background: transparent;
-  }
-
-  .ba {
-    position: absolute;
-    top: 56%;
-    left: 13%;
-    font-size: 20px;
-    border-radius: 5px;
-    background: transparent;
+    font-family: teko;
+    display: none;
 
 
   }
 
-  #bt {
+
+  .fogo {
     position: absolute;
-    top: 54%;
-    left: 350px;
-    font-size: 30px;
-    border-radius: 5px;
-    background: transparent;
+    top: 60%;
+    left: 70%;
+    border: 3px solid red;
+    font-family: teko;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border-radius: 7px;
+    color: white;
+    padding: 2px;
+   
+
 
   }
 
@@ -267,26 +171,29 @@ body {
     background: transparent;
     color: azure;
     border-color: red;
-    display: none;
     width: 30%;
-    height: 10%;
-
+    height: 12%;
+    display: none;
 
   }
 
-  #over {
+  #tela2 {
     position: absolute;
-    top: 30%;
-    left: 30%;
-    font-size: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
     border-radius: 10px;
     background: transparent;
+    color: azure;
+    border-color: red;
+    width: 30%;
+    height: 12%;
     display: none;
-    color: white;
+
 
   }
-  
-
-
-
 }
+
+
+/* d-_-b */
